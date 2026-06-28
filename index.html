@@ -1435,8 +1435,18 @@
         </p>
 
         <div class="video-box">
-          <div style="aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: linear-gradient(135deg, rgba(248,180,0,0.16), rgba(255,255,255,0.04)); border: 1px solid var(--border); display: grid; place-items: center; text-align: center; padding: 24px;">
-            <div>
+       <video
+  controls
+  autoplay
+  muted
+  loop
+  style="
+    width:100%;
+    border-radius:18px;
+    object-fit:cover;
+  ">
+  <source src="assets/promo.mp4" type="video/mp4">
+</video>
               <div style="font-size: 3rem; margin-bottom: 10px;">▶</div>
               <h3 style="margin-bottom: 8px;">Promotional Video Slot</h3>
               <p style="color: var(--muted); max-width: 620px; margin: 0 auto;">Insert your event highlight video, reels, or a background promo clip here later.</p>
@@ -1486,7 +1496,14 @@
 
   <div class="floating" aria-label="Quick contact buttons">
     <a class="float-btn float-whatsapp" href="https://wa.me/639629549850" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">WA</a>
-    <a class="float-btn float-messenger" href="https://m.me/" target="_blank" rel="noopener noreferrer" aria-label="Open Messenger">M</a>
+    <a class="float-btn float-messenger"
+   href="https://m.me/SnapMomentPhotobooth"
+   target="_blank">
+
+  <img src="assets/messenger.png"
+       alt="Messenger"
+       style="width:28px;height:28px;">
+</a>
     <a class="float-btn float-top" href="#home" aria-label="Back to top">↑</a>
   </div>
 
