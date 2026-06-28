@@ -10,7 +10,7 @@
   <meta property="og:description" content="Premium photobooth experience for weddings, birthdays, special events, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/hero.jpg" />
-  <meta name="theme-color" content="#0d0d0d" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Snap Moment Photobooth</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,18 +19,19 @@
 
   <style>
     :root {
-      --bg: #0d0d0d;
-      --bg-2: #111111;
-      --card: #161616;
-      --card-2: #1b1b1b;
-      --text: #ffffff;
-      --muted: #b7b7b7;
-      --muted-2: #8f8f8f;
-      --border: rgba(255,255,255,0.08);
-      --gold: #f8b400;
-      --gold-2: #ffcc4d;
-      --success: #22c55e;
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      /* Light Theme Colors */
+      --bg: #ffffff;
+      --bg-2: #f5f5f5;
+      --card: rgba(255, 255, 255, 0.85); /* Semi-transparent para makita ang background */
+      --card-2: rgba(245, 245, 245, 0.9);
+      --text: #222222;
+      --muted: #555555;
+      --muted-2: #777777;
+      --border: rgba(0, 0, 0, 0.1);
+      --gold: #d49a00;
+      --gold-2: #f8b400;
+      --success: #16a34a;
+      --shadow: 0 15px 35px rgba(0,0,0,0.08);
       --radius: 22px;
       --radius-sm: 16px;
       --max: 1200px;
@@ -46,14 +47,16 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: var(--header-h); /* Fix for anchor links hidden behind header */
     }
 
-    body {
-      background: radial-gradient(circle at top, #181818 0%, var(--bg) 40%, #090909 100%);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  body {
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Full fixed background image with gray/white overlay */
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(245, 245, 245, 0.92)), url("assets/10415.jpg") center/cover fixed no-repeat;
+}
 
     img {
       max-width: 100%;
@@ -82,7 +85,7 @@
     }
 
     .section.dark {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+      background: rgba(0, 0, 0, 0.03); /* Subtle separation for light theme */
     }
 
     .eyebrow {
@@ -90,9 +93,9 @@
       align-items: center;
       gap: 10px;
       padding: 8px 14px;
-      border: 1px solid rgba(248,180,0,0.25);
-      color: var(--gold-2);
-      background: rgba(248,180,0,0.08);
+      border: 1px solid rgba(212, 154, 0, 0.3);
+      color: var(--gold);
+      background: rgba(248, 180, 0, 0.1);
       border-radius: 999px;
       font-size: 0.88rem;
       font-weight: 600;
@@ -105,7 +108,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--gold);
+      background: var(--gold-2);
       box-shadow: 0 0 0 6px rgba(248,180,0,0.12);
     }
 
@@ -115,6 +118,7 @@
       margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 1px;
+      color: #111;
     }
 
     .section-subtitle {
@@ -145,17 +149,17 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--gold), var(--gold-2));
       color: #000;
-      box-shadow: 0 14px 30px rgba(248,180,0,0.20);
+      box-shadow: 0 10px 20px rgba(248,180,0,0.3);
     }
 
     .btn-ghost {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.6);
       border: 1px solid var(--border);
       color: var(--text);
     }
 
     .btn-ghost:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.05);
     }
 
     .btn-small {
@@ -168,7 +172,7 @@
       top: 0;
       z-index: 999;
       backdrop-filter: blur(16px);
-      background: rgba(10,10,10,0.72);
+      background: rgba(255, 255, 255, 0.85);
       border-bottom: 1px solid var(--border);
       height: var(--header-h);
     }
@@ -193,8 +197,8 @@
       height: 54px;
       border-radius: 14px;
       object-fit: cover;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #222;
+      border: 1px solid var(--border);
+      background: #eee;
       flex-shrink: 0;
     }
 
@@ -208,6 +212,7 @@
       font-size: 1.05rem;
       line-height: 1.1;
       letter-spacing: 0.4px;
+      color: #000;
     }
 
     .brand-text span {
@@ -227,14 +232,14 @@
     .nav-links a {
       color: var(--muted);
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       transition: 0.2s ease;
       position: relative;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--text);
+      color: var(--gold);
     }
 
     .nav-links a::after {
@@ -265,7 +270,7 @@
       height: 46px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.03);
       color: var(--text);
       cursor: pointer;
     }
@@ -275,27 +280,6 @@
       display: grid;
       align-items: center;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(13,13,13,0.3), rgba(13,13,13,0.85)),
-        url("assets/hero.jpg") center/cover no-repeat;
-      opacity: 0.95;
-      transform: scale(1.03);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 20%, rgba(248,180,0,0.14), transparent 25%),
-                  radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 22%);
-      pointer-events: none;
     }
 
     .hero-inner {
@@ -318,6 +302,7 @@
       margin-bottom: 18px;
       text-transform: uppercase;
       letter-spacing: 1.2px;
+      color: #111;
     }
 
     .hero h1 span {
@@ -325,7 +310,7 @@
     }
 
     .hero p {
-      color: #e6e6e6;
+      color: var(--muted);
       max-width: 640px;
       font-size: clamp(1rem, 1.7vw, 1.15rem);
       margin-bottom: 30px;
@@ -347,16 +332,17 @@
     .pill {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.8);
       border: 1px solid var(--border);
-      color: var(--muted);
+      color: var(--text);
       font-size: 0.92rem;
       backdrop-filter: blur(10px);
+      font-weight: 500;
     }
 
     .hero-panel {
-      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.10);
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 28px;
       padding: 24px;
       box-shadow: var(--shadow);
@@ -364,8 +350,8 @@
     }
 
     .hero-card {
-      background: rgba(0,0,0,0.25);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--border);
       border-radius: 22px;
       padding: 18px;
       margin-bottom: 16px;
@@ -374,6 +360,7 @@
     .hero-card h3 {
       margin-bottom: 8px;
       font-size: 1.05rem;
+      color: #111;
     }
 
     .hero-card p {
@@ -390,22 +377,24 @@
     }
 
     .mini-stat {
-      background: rgba(255,255,255,0.05);
+      background: #fff;
       border: 1px solid var(--border);
       border-radius: 18px;
       padding: 16px;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
     }
 
     .mini-stat strong {
       display: block;
       font-size: 1.6rem;
-      color: var(--gold-2);
+      color: var(--gold);
     }
 
     .mini-stat span {
       color: var(--muted);
       font-size: 0.9rem;
+      font-weight: 500;
     }
 
     .grid {
@@ -422,7 +411,7 @@
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
@@ -432,14 +421,14 @@
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: rgba(248,180,0,0.22);
+      border-color: rgba(248,180,0,0.4);
     }
 
     .card-img {
       aspect-ratio: 4 / 3;
       width: 100%;
       object-fit: cover;
-      background: #222;
+      background: #eee;
       cursor: pointer;
     }
 
@@ -450,6 +439,7 @@
     .card-body h3 {
       margin-bottom: 8px;
       font-size: 1.05rem;
+      color: #111;
     }
 
     .card-body p {
@@ -463,8 +453,8 @@
       padding: 8px 12px;
       border-radius: 999px;
       background: rgba(248,180,0,0.12);
-      color: var(--gold-2);
-      border: 1px solid rgba(248,180,0,0.18);
+      color: var(--gold);
+      border: 1px solid rgba(248,180,0,0.2);
       font-weight: 700;
       font-size: 0.92rem;
     }
@@ -477,23 +467,25 @@
     }
 
     .strip-item {
-      background: rgba(255,255,255,0.04);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 18px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
 
     .strip-item strong {
       display: block;
       font-size: 1.5rem;
-      color: var(--gold-2);
+      color: var(--gold);
       margin-bottom: 4px;
     }
 
     .strip-item span {
       color: var(--muted);
       font-size: 0.92rem;
+      font-weight: 500;
     }
 
     .quote-wrap {
@@ -508,7 +500,7 @@
     .testimonial-box,
     .video-box,
     .feature-box {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -526,7 +518,7 @@
       gap: 14px;
       align-items: flex-start;
       padding: 14px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(0,0,0,0.02);
       border: 1px solid var(--border);
       border-radius: 18px;
     }
@@ -537,8 +529,8 @@
       display: grid;
       place-items: center;
       border-radius: 14px;
-      background: rgba(248,180,0,0.14);
-      color: var(--gold-2);
+      background: rgba(248,180,0,0.15);
+      color: var(--gold);
       flex-shrink: 0;
       font-size: 1.1rem;
     }
@@ -546,6 +538,7 @@
     .info-item strong {
       display: block;
       margin-bottom: 3px;
+      color: #111;
     }
 
     .info-item span {
@@ -571,8 +564,8 @@
 
     .field label {
       font-size: 0.92rem;
-      color: #eaeaea;
-      font-weight: 500;
+      color: var(--text);
+      font-weight: 600;
     }
 
     .field input,
@@ -582,7 +575,7 @@
       padding: 14px 15px;
       border-radius: 16px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,0.25);
+      background: #ffffff;
       color: var(--text);
       outline: none;
       transition: 0.2s ease;
@@ -591,8 +584,8 @@
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      border-color: rgba(248,180,0,0.55);
-      box-shadow: 0 0 0 4px rgba(248,180,0,0.10);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(248,180,0,0.15);
     }
 
     .field textarea {
@@ -618,9 +611,10 @@
       display: none;
       padding: 14px 16px;
       border-radius: 16px;
-      background: rgba(34,197,94,0.10);
-      border: 1px solid rgba(34,197,94,0.24);
-      color: #b8f7ca;
+      background: rgba(22, 163, 74, 0.1);
+      border: 1px solid rgba(22, 163, 74, 0.2);
+      color: #16a34a;
+      font-weight: 500;
     }
 
     .stats-grid {
@@ -631,24 +625,26 @@
     }
 
     .stat-card {
-      background: rgba(255,255,255,0.04);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 18px;
       text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
 
     .stat-card strong {
       display: block;
       font-size: 2rem;
       line-height: 1;
-      color: var(--gold-2);
+      color: var(--gold);
       margin-bottom: 6px;
     }
 
     .stat-card span {
       color: var(--muted);
       font-size: 0.92rem;
+      font-weight: 500;
     }
 
     .testimonial-slider {
@@ -659,26 +655,28 @@
     }
 
     .testimonial {
-      background: rgba(255,255,255,0.04);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
 
     .stars {
-      color: var(--gold-2);
+      color: var(--gold);
       margin-bottom: 12px;
       letter-spacing: 2px;
     }
 
     .testimonial p {
-      color: #e8e8e8;
+      color: var(--text);
       margin-bottom: 14px;
     }
 
     .testimonial strong {
       display: block;
       margin-bottom: 2px;
+      color: #111;
     }
 
     .testimonial span {
@@ -691,7 +689,7 @@
       padding: 26px;
       border-radius: 26px;
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      background: var(--card);
       box-shadow: var(--shadow);
     }
 
@@ -706,6 +704,7 @@
     .review-panel h3 {
       font-size: 1.35rem;
       margin-bottom: 6px;
+      color: #111;
     }
 
     .review-panel p {
@@ -736,7 +735,7 @@
     }
 
     .review-card {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.9);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 18px;
@@ -766,15 +765,15 @@
       gap: 8px;
       padding: 7px 11px;
       border-radius: 999px;
-      background: rgba(248,180,0,0.10);
-      color: var(--gold-2);
-      border: 1px solid rgba(248,180,0,0.16);
+      background: rgba(248,180,0,0.1);
+      color: var(--gold);
+      border: 1px solid rgba(248,180,0,0.2);
       font-size: 0.85rem;
       font-weight: 600;
     }
 
     .review-stars {
-      color: var(--gold-2);
+      color: var(--gold);
       letter-spacing: 2px;
       font-size: 0.95rem;
       white-space: nowrap;
@@ -784,9 +783,9 @@
       color: var(--muted);
       text-align: center;
       padding: 18px;
-      border: 1px dashed rgba(255,255,255,0.12);
+      border: 1px dashed var(--border);
       border-radius: 18px;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255,255,255,0.5);
     }
 
     .feature-grid {
@@ -797,15 +796,17 @@
     }
 
     .feature-item {
-      background: rgba(255,255,255,0.04);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
     }
 
     .feature-item h3 {
       margin-bottom: 8px;
       font-size: 1.02rem;
+      color: #111;
     }
 
     .feature-item p {
@@ -816,7 +817,8 @@
     .footer {
       padding: 34px 0 110px;
       border-top: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(5px);
     }
 
     .footer-inner {
@@ -828,6 +830,7 @@
 
     .footer h3 {
       margin-bottom: 12px;
+      color: #111;
     }
 
     .footer p,
@@ -842,7 +845,7 @@
     }
 
     .footer-links a:hover {
-      color: var(--text);
+      color: var(--gold);
     }
 
     .copyright {
@@ -870,7 +873,7 @@
       display: grid;
       place-items: center;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: 1px solid var(--border);
       transition: 0.25s ease;
     }
 
@@ -881,17 +884,20 @@
     .float-whatsapp {
       background: #25D366;
       color: #fff;
+      border: none;
     }
 
     .float-messenger {
       background: linear-gradient(135deg, #1877f2, #0ea5e9);
       color: #fff;
+      border: none;
     }
 
     .float-top {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.9);
       color: var(--text);
       backdrop-filter: blur(10px);
+      font-weight: bold;
     }
 
     .lightbox {
@@ -927,7 +933,7 @@
       border: 0;
       border-radius: 999px;
       cursor: pointer;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.2);
       color: #fff;
       font-size: 1.2rem;
     }
@@ -940,7 +946,7 @@
       align-items: center;
       justify-content: center;
       padding: 18px;
-      background: rgba(0,0,0,0.78);
+      background: rgba(0,0,0,0.6);
     }
 
     .modal.open {
@@ -949,7 +955,7 @@
 
     .modal-card {
       width: min(100%, 760px);
-      background: linear-gradient(180deg, rgba(24,24,24,0.98), rgba(14,14,14,0.98));
+      background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 28px;
       box-shadow: var(--shadow);
@@ -969,8 +975,8 @@
       height: 44px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
+      background: rgba(0,0,0,0.05);
+      color: #333;
       cursor: pointer;
     }
 
@@ -1009,11 +1015,12 @@
         top: var(--header-h);
         left: 0;
         right: 0;
-        background: rgba(10,10,10,0.98);
+        background: rgba(255,255,255,0.98);
         border-bottom: 1px solid var(--border);
         padding: 14px 16px 18px;
         display: none;
         z-index: 998;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
       }
 
       .mobile-menu.open {
@@ -1025,11 +1032,12 @@
         padding: 14px 12px;
         border-radius: 14px;
         color: var(--muted);
+        font-weight: 600;
       }
 
       .mobile-menu a:hover {
-        background: rgba(255,255,255,0.05);
-        color: var(--text);
+        background: rgba(0,0,0,0.05);
+        color: var(--gold);
       }
 
       .testimonial-slider,
@@ -1198,7 +1206,7 @@
         <div class="feature-grid">
           <div class="feature-item">
             <h3>Professional Branding</h3>
-            <p>Strong visual identity with gold accents, dark premium theme, and clean typography.</p>
+            <p>Strong visual identity with gold accents, clean white theme, and crisp typography.</p>
           </div>
           <div class="feature-item">
             <h3>Business-Ready Layout</h3>
@@ -1226,7 +1234,7 @@
 
         <div class="grid gallery-grid">
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/1.jpg" alt="Debut Photobooth Theme" />
+            <img class="card-img lightbox-trigger" src="assets/1.jpg" alt="Debut Photobooth Theme" loading="lazy" />
             <div class="card-body">
               <h3>Debut Theme</h3>
               <p>Elegant and feminine setup for debut celebrations.</p>
@@ -1234,7 +1242,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/2.jpg" alt="Birthday Photobooth Theme" />
+            <img class="card-img lightbox-trigger" src="assets/2.jpg" alt="Birthday Photobooth Theme" loading="lazy" />
             <div class="card-body">
               <h3>Birthday Celebration</h3>
               <p>Bright, colorful, and customized to match the birthday concept.</p>
@@ -1242,7 +1250,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/3.jpg" alt="Family Event Photobooth Theme" />
+            <img class="card-img lightbox-trigger" src="assets/3.jpg" alt="Family Event Photobooth Theme" loading="lazy" />
             <div class="card-body">
               <h3>Family Event</h3>
               <p>Warm and memorable setup for family gatherings and milestones.</p>
@@ -1250,7 +1258,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/4.jpg" alt="Kids Birthday Photobooth Theme" />
+            <img class="card-img lightbox-trigger" src="assets/4.jpg" alt="Kids Birthday Photobooth Theme" loading="lazy" />
             <div class="card-body">
               <h3>Kids Birthday</h3>
               <p>Fun theme styles made for children’s parties and special events.</p>
@@ -1258,7 +1266,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/5.jpg" alt="Corporate Event Photobooth Theme" />
+            <img class="card-img lightbox-trigger" src="assets/5.jpg" alt="Corporate Event Photobooth Theme" loading="lazy" />
             <div class="card-body">
               <h3>Corporate Event</h3>
               <p>Professional layouts ideal for company events and brand activations.</p>
@@ -1266,7 +1274,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/6.jpg" alt="Special Event Photobooth Theme" />
+            <img class="card-img lightbox-trigger" src="assets/6.jpg" alt="Special Event Photobooth Theme" loading="lazy" />
             <div class="card-body">
               <h3>Special Occasions</h3>
               <p>Flexible designs that can be tailored to your theme and colors.</p>
@@ -1305,7 +1313,7 @@
 
         <div class="grid packages-grid">
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/11.jpg" alt="Package 1 Photo Standee" />
+            <img class="card-img lightbox-trigger" src="assets/11.jpg" alt="Package 1 Photo Standee" loading="lazy" />
             <div class="card-body">
               <h3>Package 1 — Photo Standee</h3>
               <p>Ideal for elegant events with premium standing display layouts.</p>
@@ -1314,7 +1322,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/12.jpg" alt="Package 2 Photo Strip" />
+            <img class="card-img lightbox-trigger" src="assets/12.jpg" alt="Package 2 Photo Strip" loading="lazy" />
             <div class="card-body">
               <h3>Package 2 — Photo Strip</h3>
               <p>Classic strip template loved by birthdays, debut, and family events.</p>
@@ -1323,7 +1331,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/13.jpg" alt="Package 3 Strip Dedication" />
+            <img class="card-img lightbox-trigger" src="assets/13.jpg" alt="Package 3 Strip Dedication" loading="lazy" />
             <div class="card-body">
               <h3>Package 3 — Strip Dedication</h3>
               <p>Includes dedication-style layout for a more personal and memorable look.</p>
@@ -1332,7 +1340,7 @@
           </article>
 
           <article class="card">
-            <img class="card-img lightbox-trigger" src="assets/14.jpg" alt="Package 4 Polaroid" />
+            <img class="card-img lightbox-trigger" src="assets/14.jpg" alt="Package 4 Polaroid" loading="lazy" />
             <div class="card-body">
               <h3>Package 4 — Polaroid</h3>
               <p>Modern and trendy Polaroid-style photo souvenir for any celebration.</p>
@@ -1380,7 +1388,7 @@
               <h3>Leave a Review</h3>
               <p>Share your experience as a visitor, client, guest, or organizer.</p>
             </div>
-                  </div>
+          </div>
 
           <form id="reviewForm" class="review-form">
             <div class="form-grid">
@@ -1601,7 +1609,7 @@
         </p>
 
         <div class="video-box">
-          <div style="aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: linear-gradient(135deg, rgba(248,180,0,0.18), rgba(255,255,255,0.04)); border: 1px solid var(--border); padding: 18px;">
+          <div style="aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: rgba(0,0,0,0.03); border: 1px solid var(--border); padding: 18px;">
             <video
               controls
               autoplay
@@ -1619,7 +1627,7 @@
             <p style="color: var(--muted); max-width: 680px; margin: 0 auto 12px;">
               Snap Moment Photobooth turns simple moments into premium memories. Let the video show the elegance, fun, and energy of your service.
             </p>
-            <p style="color: var(--gold-2); font-weight: 700; letter-spacing: 0.4px;">
+            <p style="color: var(--gold); font-weight: 700; letter-spacing: 0.4px;">
               “Snapshots, smiles, and unforgettable memories.”
             </p>
           </div>
@@ -1869,6 +1877,19 @@ Additional Requests: ${data.message || "None"}`;
     const clearReviewsBtn = document.getElementById("clearReviewsBtn");
     const reviewStorageKey = "snapMomentReviews_v1";
 
+    // Simple XSS Sanitizer para sa LocalStorage Review Display
+    function sanitizeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          "'": '&#39;',
+          '"': '&quot;'
+        }[tag] || tag)
+      );
+    }
+
     function safeLoadReviews() {
       try {
         const raw = localStorage.getItem(reviewStorageKey);
@@ -1901,18 +1922,18 @@ Additional Requests: ${data.message || "None"}`;
         <article class="review-card">
           <div class="review-card-head">
             <div>
-              <strong style="display:block; font-size:1.05rem; margin-bottom:4px;">${review.name}</strong>
+              <strong style="display:block; font-size:1.05rem; margin-bottom:4px;">${sanitizeHTML(review.name)}</strong>
               <div class="review-meta">
-                <span>${review.role}</span>
+                <span>${sanitizeHTML(review.role)}</span>
                 <span>•</span>
-                <span>${review.event}</span>
+                <span>${sanitizeHTML(review.event)}</span>
                 <span>•</span>
-                <span>${review.date}</span>
+                <span>${sanitizeHTML(review.date)}</span>
               </div>
             </div>
             <div class="review-stars" aria-label="${review.rating} out of 5 stars">${starText(review.rating)}</div>
           </div>
-          <p style="color: var(--muted); margin: 0;">${review.comment}</p>
+          <p style="color: var(--muted); margin: 0;">${sanitizeHTML(review.comment)}</p>
         </article>
       `).join("");
     }
