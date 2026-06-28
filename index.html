@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Snap Moment Photobooth - Premium photobooth services for weddings, birthdays, debut, corporate events, and special occasions in Binangonan, Rizal." />
+  <meta name="keywords" content="photobooth, photobooth rental, Binangonan Rizal, weddings, birthdays, debut, corporate events, Snap Moment Photobooth" />
+  <meta name="author" content="Snap Moment Photobooth" />
+  <meta property="og:title" content="Snap Moment Photobooth" />
+  <meta property="og:description" content="Premium photobooth experience for weddings, birthdays, special events, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/hero.jpg" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <title>Snap Moment Photobooth</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg-2: #111111;
+      --card: #161616;
+      --card-2: #1b1b1b;
+      --text: #ffffff;
+      --muted: #b7b7b7;
+      --muted-2: #8f8f8f;
+      --border: rgba(255,255,255,0.08);
+      --gold: #f8b400;
+      --gold-2: #ffcc4d;
+      --success: #22c55e;
+      --shadow: 0 20px 60px rgba(0,0,0,0.45);
+      --radius: 22px;
+      --radius-sm: 16px;
+      --max: 1200px;
+      --header-h: 82px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #181818 0%, var(--bg) 40%, #090909 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section.dark {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid rgba(248,180,0,0.25);
+      color: var(--gold-2);
+      background: rgba(248,180,0,0.08);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(248,180,0,0.12);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      cursor: pointer;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      will-change: transform;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      color: #000;
+      box-shadow: 0 14px 30px rgba(248,180,0,0.20);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-small {
+      padding: 11px 16px;
+      font-size: 0.95rem;
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(16px);
+      background: rgba(10,10,10,0.72);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-h);
+    }
+
+    .nav {
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #222;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      font-size: 1.05rem;
+      line-height: 1.1;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: 0.2s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: calc(100vh - var(--header-h));
+      display: grid;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(13,13,13,0.3), rgba(13,13,13,0.85)),
+        url("assets/hero.jpg") center/cover no-repeat;
+      opacity: 0.95;
+      transform: scale(1.03);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(248,180,0,0.14), transparent 25%),
+                  radial-gradient(circle at 80% 30%, rgba(255,255,255,0.06), transparent 22%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 64px 0 80px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      line-height: 0.95;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      color: #e6e6e6;
+      max-width: 640px;
+      font-size: clamp(1rem, 1.7vw, 1.15rem);
+      margin-bottom: 30px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.92rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-card {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .hero-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini-stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--gold-2);
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Grid cards */
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .packages-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(248,180,0,0.22);
+    }
+
+    .card-img {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      object-fit: cover;
+      background: #222;
+      cursor: pointer;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card-body h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .card-body p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .package-price {
+      display: inline-flex;
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(248,180,0,0.12);
+      color: var(--gold-2);
+      border: 1px solid rgba(248,180,0,0.18);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    /* About / info strip */
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .strip-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .strip-item strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--gold-2);
+      margin-bottom: 4px;
+    }
+
+    .strip-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* Quote form */
+    .quote-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .info-box,
+    .form-box {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(248,180,0,0.14);
+      color: var(--gold-2);
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .info-item span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.92rem;
+      color: #eaeaea;
+      font-weight: 500;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.25);
+      color: var(--text);
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(248,180,0,0.55);
+      box-shadow: 0 0 0 4px rgba(248,180,0,0.10);
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .form-note {
+      margin-top: 14px;
+      color: var(--muted-2);
+      font-size: 0.9rem;
+    }
+
+    .success {
+      margin-top: 14px;
+      display: none;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(34,197,94,0.10);
+      border: 1px solid rgba(34,197,94,0.24);
+      color: #b8f7ca;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 34px 0 110px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr 0.7fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer h3 {
+      margin-bottom: 12px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .copyright {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted-2);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    /* Floating buttons */
+    .floating {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      gap: 12px;
+      z-index: 1000;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: 0.25s ease;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .float-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .float-messenger {
+      background: linear-gradient(135deg, #1877f2, #0ea5e9);
+      color: #fff;
+    }
+
+    .float-top {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.86);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 18px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      width: min(100%, 1050px);
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 1024px) {
+      .hero-inner,
+      .quote-wrap,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links,
+      .nav-actions .btn-ghost {
+        display: none;
+      }
+
+      .menu-btn {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: var(--header-h);
+        left: 0;
+        right: 0;
+        background: rgba(10,10,10,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 16px 18px;
+        display: none;
+        z-index: 998;
+      }
+
+      .mobile-menu.open {
+        display: block;
+      }
+
+      .mobile-menu a {
+        display: block;
+        padding: 14px 12px;
+        border-radius: 14px;
+        color: var(--muted);
+      }
+
+      .mobile-menu a:hover {
+        background: rgba(255,255,255,0.05);
+        color: var(--text);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero-inner {
+        padding: 38px 0 58px;
+      }
+
+      .hero-cta,
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .strip {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .floating {
+        right: 14px;
+        bottom: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Snap Moment Photobooth Home">
+        <img class="brand-logo" src="assets/logo.jpg" alt="Snap Moment Photobooth Logo" />
+        <div class="brand-text">
+          <strong>Snap Moment</strong>
+          <span>Premium Photobooth Experience</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#packages">Packages</a>
+        <a href="#quote">Quotation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-ghost btn-small" href="#quote">Request Quote</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#packages">Packages</a>
+      <a href="#quote">Quotation</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Binangonan, Rizal • Weddings • Birthdays • Debut • Corporate Events</div>
+          <h1>Capture Every <span>Moment</span> in Style</h1>
+          <p>
+            Snap Moment Photobooth delivers a premium photo experience for special occasions.
+            Elegant templates, beautiful prints, and a smooth booking process for your event.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#packages">View Packages</a>
+            <a class="btn btn-ghost" href="#quote">Request Quotation</a>
+          </div>
+
+          <div class="hero-points">
+            <span class="pill">Instant setup</span>
+            <span class="pill">Custom templates</span>
+            <span class="pill">High-quality prints</span>
+            <span class="pill">Friendly service</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Quick business details">
+          <div class="hero-card">
+            <h3>Perfect for Any Event</h3>
+            <p>Weddings, debut, birthdays, school events, corporate gatherings, and private celebrations.</p>
+          </div>
+          <div class="hero-card">
+            <h3>Fast Quotation Response</h3>
+            <p>Send your event details and receive a quotation request instantly through WhatsApp or Messenger.</p>
+          </div>
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <strong>100%</strong>
+              <span>Responsive</span>
+            </div>
+            <div class="mini-stat">
+              <strong>24/7</strong>
+              <span>Inquiry Ready</span>
+            </div>
+            <div class="mini-stat">
+              <strong>HD</strong>
+              <span>Templates</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Pro</strong>
+              <span>Design</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section dark" id="gallery">
+      <div class="container">
+        <div class="eyebrow">Our Events Gallery</div>
+        <h2 class="section-title">Featured Moments</h2>
+        <p class="section-subtitle">
+          Browse sample layouts and event themes. Tap any image to view it in full screen.
+        </p>
+
+        <div class="grid gallery-grid">
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/1.jpg" alt="Debut Photobooth Theme" />
+            <div class="card-body">
+              <h3>Debut Theme</h3>
+              <p>Elegant and feminine setup for debut celebrations.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/2.jpg" alt="Birthday Photobooth Theme" />
+            <div class="card-body">
+              <h3>Birthday Celebration</h3>
+              <p>Bright, colorful, and customized to match the birthday concept.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/3.jpg" alt="Family Event Photobooth Theme" />
+            <div class="card-body">
+              <h3>Family Event</h3>
+              <p>Warm and memorable setup for family gatherings and milestones.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/4.jpg" alt="Kids Birthday Photobooth Theme" />
+            <div class="card-body">
+              <h3>Kids Birthday</h3>
+              <p>Fun theme styles made for children’s parties and special events.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/5.jpg" alt="Corporate Event Photobooth Theme" />
+            <div class="card-body">
+              <h3>Corporate Event</h3>
+              <p>Professional layouts ideal for company events and brand activations.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/6.jpg" alt="Special Event Photobooth Theme" />
+            <div class="card-body">
+              <h3>Special Occasions</h3>
+              <p>Flexible designs that can be tailored to your theme and colors.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="strip" aria-label="Highlights">
+          <div class="strip-item">
+            <strong>Custom</strong>
+            <span>Photo templates</span>
+          </div>
+          <div class="strip-item">
+            <strong>Clean</strong>
+            <span>Professional layout</span>
+          </div>
+          <div class="strip-item">
+            <strong>Fast</strong>
+            <span>Easy booking process</span>
+          </div>
+          <div class="strip-item">
+            <strong>Trusted</strong>
+            <span>Event-ready service</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="packages">
+      <div class="container">
+        <div class="eyebrow">Our Packages</div>
+        <h2 class="section-title">Choose Your Package</h2>
+        <p class="section-subtitle">
+          Affordable and high-quality photobooth packages for simple parties to premium event coverage.
+        </p>
+
+        <div class="grid packages-grid">
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/11.jpg" alt="Package 1 Photo Standee" />
+            <div class="card-body">
+              <h3>Package 1 — Photo Standee</h3>
+              <p>Ideal for elegant events with premium standing display layouts.</p>
+              <div class="package-price">Perfect for formal events</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/12.jpg" alt="Package 2 Photo Strip" />
+            <div class="card-body">
+              <h3>Package 2 — Photo Strip</h3>
+              <p>Classic strip template loved by birthdays, debut, and family events.</p>
+              <div class="package-price">Most popular choice</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/13.jpg" alt="Package 3 Strip Dedication" />
+            <div class="card-body">
+              <h3>Package 3 — Strip Dedication</h3>
+              <p>Includes dedication-style layout for a more personal and memorable look.</p>
+              <div class="package-price">With dedication style</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-img lightbox-trigger" src="assets/14.jpg" alt="Package 4 Polaroid" />
+            <div class="card-body">
+              <h3>Package 4 — Polaroid</h3>
+              <p>Modern and trendy Polaroid-style photo souvenir for any celebration.</p>
+              <div class="package-price">Modern and trendy</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="quote">
+      <div class="container">
+        <div class="eyebrow">Request a Quotation</div>
+        <h2 class="section-title">Send Your Event Details</h2>
+        <p class="section-subtitle">
+          Fill out the form below and it will prepare your inquiry message for WhatsApp.
+        </p>
+
+        <div class="quote-wrap">
+          <div class="info-box">
+            <h3>What to include</h3>
+            <p style="color: var(--muted); margin-top: 10px;">
+              The more complete your details are, the faster we can reply with the best quotation.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <div class="info-icon">📅</div>
+                <div>
+                  <strong>Event Date</strong>
+                  <span>Share the date to check availability.</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div>
+                  <strong>Venue Location</strong>
+                  <span>Include the full venue or address.</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">🎉</div>
+                <div>
+                  <strong>Event Type</strong>
+                  <span>Wedding, debut, birthday, corporate, and more.</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="info-icon">✨</div>
+                <div>
+                  <strong>Special Requests</strong>
+                  <span>Add theme colors, custom text, or other notes.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <form id="quoteForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Full Name</label>
+                  <input id="name" name="name" type="text" placeholder="Juan Dela Cruz" required />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Mobile Number</label>
+                  <input id="phone" name="phone" type="tel" placeholder="09XXXXXXXXX" required />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email Address</label>
+                  <input id="email" name="email" type="email" placeholder="name@email.com" />
+                </div>
+
+                <div class="field">
+                  <label for="eventDate">Event Date</label>
+                  <input id="eventDate" name="eventDate" type="date" required />
+                </div>
+
+                <div class="field">
+                  <label for="eventType">Event Type</label>
+                  <select id="eventType" name="eventType" required>
+                    <option value="">Select event type</option>
+                    <option>Wedding</option>
+                    <option>Birthday</option>
+                    <option>Debut</option>
+                    <option>Corporate Event</option>
+                    <option>School Event</option>
+                    <option>Family Gathering</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="package">Preferred Package</label>
+                  <select id="package" name="package" required>
+                    <option value="">Select package</option>
+                    <option>Package 1 — Photo Standee</option>
+                    <option>Package 2 — Photo Strip</option>
+                    <option>Package 3 — Strip Dedication</option>
+                    <option>Package 4 — Polaroid</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="venue">Venue / Address</label>
+                  <input id="venue" name="venue" type="text" placeholder="Complete event venue" required />
+                </div>
+
+                <div class="field full">
+                  <label for="message">Additional Requests</label>
+                  <textarea id="message" name="message" placeholder="Theme colors, custom template text, number of hours, or any special instructions"></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send to WhatsApp</button>
+                <a class="btn btn-ghost" href="mailto:snapmoment165@gmail.com?subject=Quotation%20Inquiry">Email Us</a>
+              </div>
+
+              <div class="form-note">
+                By submitting, your inquiry will be prepared as a message and opened in WhatsApp for quick sending.
+              </div>
+
+              <div class="success" id="successBox">
+                Your quotation request has been prepared successfully. Please review and send the message in WhatsApp.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            <div class="eyebrow">Contact Us</div>
+            <h3>Let’s Capture Your Best Moments</h3>
+            <p>
+              Snap Moment Photobooth is ready for weddings, birthdays, debut, corporate events, and other special celebrations.
+            </p>
+          </div>
+
+          <div>
+            <h3>Details</h3>
+            <div class="footer-links">
+              <p>📍 Binangonan, Rizal</p>
+              <p>📞 09629549850</p>
+              <p>📩 snapmoment165@gmail.com</p>
+            </div>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+            <div class="footer-links">
+              <a href="#home">Home</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#packages">Packages</a>
+              <a href="#quote">Quotation</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="copyright">
+          © 2026 Snap Moment Photobooth. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="floating" aria-label="Quick contact buttons">
+    <a class="float-btn float-whatsapp" href="https://wa.me/639629549850" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">WA</a>
+    <a class="float-btn float-messenger" href="https://m.me/" target="_blank" rel="noopener noreferrer" aria-label="Open Messenger">M</a>
+    <a class="float-btn float-top" href="#home" aria-label="Back to top">↑</a>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+    <img id="lightboxImg" alt="Expanded gallery preview" />
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const navLinks = document.querySelectorAll(".nav-links a, .mobile-menu a");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+      menuBtn.textContent = mobileMenu.classList.contains("open") ? "✕" : "☰";
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    const sections = document.querySelectorAll("section[id]");
+    const topNavLinks = document.querySelectorAll(".nav-links a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        if (scrollY >= top && scrollY < top + height) current = section.getAttribute("id");
+      });
+
+      topNavLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    document.querySelectorAll(".lightbox-trigger").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeLightbox();
+        mobileMenu.classList.remove("open");
+        menuBtn.textContent = "☰";
+      }
+    });
+
+    const quoteForm = document.getElementById("quoteForm");
+    const successBox = document.getElementById("successBox");
+
+    quoteForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        eventDate: document.getElementById("eventDate").value,
+        eventType: document.getElementById("eventType").value,
+        package: document.getElementById("package").value,
+        venue: document.getElementById("venue").value.trim(),
+        message: document.getElementById("message").value.trim()
+      };
+
+      const text =
+`Hello Snap Moment Photobooth, I would like to request a quotation.
+
+Full Name: ${data.name}
+Mobile Number: ${data.phone}
+Email: ${data.email || "N/A"}
+Event Date: ${data.eventDate}
+Event Type: ${data.eventType}
+Preferred Package: ${data.package}
+Venue / Address: ${data.venue}
+Additional Requests: ${data.message || "None"}`;
+
+      const whatsappNumber = "639629549850";
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+      successBox.style.display = "block";
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
