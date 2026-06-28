@@ -686,6 +686,109 @@
       font-size: 0.92rem;
     }
 
+    .review-panel {
+      margin-top: 26px;
+      padding: 26px;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+    }
+
+    .review-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .review-panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .review-panel p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .review-form {
+      margin-top: 16px;
+    }
+
+    .review-form .field textarea {
+      min-height: 150px;
+    }
+
+    .review-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .review-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .review-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .review-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(248,180,0,0.10);
+      color: var(--gold-2);
+      border: 1px solid rgba(248,180,0,0.16);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .review-stars {
+      color: var(--gold-2);
+      letter-spacing: 2px;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .review-empty {
+      color: var(--muted);
+      text-align: center;
+      padding: 18px;
+      border: 1px dashed rgba(255,255,255,0.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.02);
+    }
+
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1245,7 +1348,7 @@
         <div class="eyebrow">Client Feedback</div>
         <h2 class="section-title">What Clients Say</h2>
         <p class="section-subtitle">
-          Add real feedback here later. This section is already prepared for testimonials and reviews.
+          Visitors and clients can leave a review below. For now, reviews are saved on this device so you can test the experience without a backend yet.
         </p>
 
         <div class="testimonial-slider">
@@ -1269,6 +1372,65 @@
             <strong>Christian P. </strong>
             <span>Debut Event</span>
           </div>
+        </div>
+
+        <div class="review-panel">
+          <div class="review-panel-head">
+            <div>
+              <h3>Leave a Review</h3>
+              <p>Share your experience as a visitor, client, guest, or organizer.</p>
+            </div>
+            <div class="review-badge">Saved locally for now</div>
+          </div>
+
+          <form id="reviewForm" class="review-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="reviewName">Name</label>
+                <input id="reviewName" type="text" placeholder="Juan Dela Cruz" required />
+              </div>
+
+              <div class="field">
+                <label for="reviewRole">Your Role</label>
+                <select id="reviewRole" required>
+                  <option value="">Select role</option>
+                  <option>Visitor</option>
+                  <option>Client</option>
+                  <option>Guest</option>
+                  <option>Event Organizer</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="reviewEvent">Event / Occasion</label>
+                <input id="reviewEvent" type="text" placeholder="Birthday / Wedding / Debut" required />
+              </div>
+
+              <div class="field">
+                <label for="reviewRating">Rating</label>
+                <select id="reviewRating" required>
+                  <option value="">Select rating</option>
+                  <option value="5">5 - Excellent</option>
+                  <option value="4">4 - Very Good</option>
+                  <option value="3">3 - Good</option>
+                  <option value="2">2 - Fair</option>
+                  <option value="1">1 - Needs Improvement</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="reviewComment">Comment</label>
+                <textarea id="reviewComment" placeholder="Tell us what you liked about the service, design, and overall experience." required></textarea>
+              </div>
+            </div>
+
+            <div class="review-actions">
+              <button type="submit" class="btn btn-primary">Submit Review</button>
+              <button type="button" class="btn btn-ghost" id="clearReviewsBtn">Clear Form</button>
+            </div>
+          </form>
+
+          <div class="review-list" id="reviewList" aria-live="polite"></div>
         </div>
       </div>
     </section>
@@ -1429,28 +1591,33 @@
     <section class="section" id="video">
       <div class="container">
         <div class="eyebrow">Media Highlight</div>
-        <h2 class="section-title">Video / Promo Slot</h2>
+        <h2 class="section-title">Watch the Magic in Motion</h2>
         <p class="section-subtitle">
-          This area is ready for a promotional video or a future embedded reel.
+          Add your promo reel, event highlights, or behind-the-scenes footage here. Put your video file inside <strong>assets/promo.mp4</strong> and it will play in this section.
         </p>
 
         <div class="video-box">
-       <video
-  controls
-  autoplay
-  muted
-  loop
-  style="
-    width:100%;
-    border-radius:18px;
-    object-fit:cover;
-  ">
-  <source src="assets/promo.mp4" type="video/mp4">
-</video>
-              <div style="font-size: 3rem; margin-bottom: 10px;">▶</div>
-              <h3 style="margin-bottom: 8px;">Promotional Video Slot</h3>
-              <p style="color: var(--muted); max-width: 620px; margin: 0 auto;">Insert your event highlight video, reels, or a background promo clip here later.</p>
-            </div>
+          <div style="aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: linear-gradient(135deg, rgba(248,180,0,0.18), rgba(255,255,255,0.04)); border: 1px solid var(--border); padding: 18px;">
+            <video
+              controls
+              autoplay
+              muted
+              loop
+              playsinline
+              style="width: 100%; height: 100%; border-radius: 18px; object-fit: cover; display: block; background: #000;">
+              <source src="assets/promo.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div style="margin-top: 18px; text-align: center;">
+            <div class="eyebrow" style="margin-bottom: 12px;">Promo Reel</div>
+            <h3 style="margin-bottom: 8px; font-size: 1.25rem;">Every event deserves a spotlight</h3>
+            <p style="color: var(--muted); max-width: 680px; margin: 0 auto 12px;">
+              Snap Moment Photobooth turns simple moments into premium memories. Let the video show the elegance, fun, and energy of your service.
+            </p>
+            <p style="color: var(--gold-2); font-weight: 700; letter-spacing: 0.4px;">
+              “Snapshots, smiles, and unforgettable memories.”
+            </p>
           </div>
         </div>
       </div>
@@ -1497,13 +1664,15 @@
   <div class="floating" aria-label="Quick contact buttons">
     <a class="float-btn float-whatsapp" href="https://wa.me/639629549850" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">WA</a>
     <a class="float-btn float-messenger"
-   href="https://m.me/SnapMomentPhotobooth"
-   target="_blank">
-
-  <img src="assets/messenger.png"
-       alt="Messenger"
-       style="width:28px;height:28px;">
-</a>
+       href="https://m.me/SnapMomentPhotobooth"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Open Messenger">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 2C6.48 2 2 6.16 2 11.27c0 2.9 1.42 5.5 3.65 7.2V22l3.17-1.74c.98.27 2.02.42 3.18.42 5.52 0 10-4.16 10-9.27S17.52 2 12 2Z" stroke="white" stroke-width="1.5"/>
+        <path d="M7.7 13.22 11.03 9.3l2.72 2.2 3.17-3.2-3.16 4.03-2.76-2.2-3.3 3.09Z" fill="white"/>
+      </svg>
+    </a>
     <a class="float-btn float-top" href="#home" aria-label="Back to top">↑</a>
   </div>
 
@@ -1690,6 +1859,89 @@ Additional Requests: ${data.message || "None"}`;
       successBox.style.display = "block";
       window.open(url, "_blank", "noopener,noreferrer");
     });
+
+    const reviewForm = document.getElementById("reviewForm");
+    const reviewList = document.getElementById("reviewList");
+    const clearReviewsBtn = document.getElementById("clearReviewsBtn");
+    const reviewStorageKey = "snapMomentReviews_v1";
+
+    function safeLoadReviews() {
+      try {
+        const raw = localStorage.getItem(reviewStorageKey);
+        return raw ? JSON.parse(raw) : [];
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function safeSaveReviews(reviews) {
+      try {
+        localStorage.setItem(reviewStorageKey, JSON.stringify(reviews));
+      } catch (error) {}
+    }
+
+    function starText(rating) {
+      const filled = "★".repeat(rating);
+      const empty = "☆".repeat(5 - rating);
+      return filled + empty;
+    }
+
+    function renderReviews() {
+      const reviews = safeLoadReviews();
+      if (!reviews.length) {
+        reviewList.innerHTML = '<div class="review-empty">No reviews yet. Be the first to leave a comment.</div>';
+        return;
+      }
+
+      reviewList.innerHTML = reviews.map((review) => `
+        <article class="review-card">
+          <div class="review-card-head">
+            <div>
+              <strong style="display:block; font-size:1.05rem; margin-bottom:4px;">${review.name}</strong>
+              <div class="review-meta">
+                <span>${review.role}</span>
+                <span>•</span>
+                <span>${review.event}</span>
+                <span>•</span>
+                <span>${review.date}</span>
+              </div>
+            </div>
+            <div class="review-stars" aria-label="${review.rating} out of 5 stars">${starText(review.rating)}</div>
+          </div>
+          <p style="color: var(--muted); margin: 0;">${review.comment}</p>
+        </article>
+      `).join("");
+    }
+
+    reviewForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("reviewName").value.trim();
+      const role = document.getElementById("reviewRole").value;
+      const eventName = document.getElementById("reviewEvent").value.trim();
+      const rating = Number(document.getElementById("reviewRating").value);
+      const comment = document.getElementById("reviewComment").value.trim();
+
+      const reviews = safeLoadReviews();
+      reviews.unshift({
+        name,
+        role,
+        event: eventName,
+        rating,
+        comment,
+        date: new Date().toLocaleDateString()
+      });
+
+      safeSaveReviews(reviews);
+      renderReviews();
+      reviewForm.reset();
+    });
+
+    clearReviewsBtn.addEventListener("click", () => {
+      reviewForm.reset();
+    });
+
+    renderReviews();
   </script>
 </body>
 </html>
