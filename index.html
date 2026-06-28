@@ -163,7 +163,6 @@
       font-size: 0.95rem;
     }
 
-    /* Header */
     .header {
       position: sticky;
       top: 0;
@@ -271,7 +270,6 @@
       cursor: pointer;
     }
 
-    /* Hero */
     .hero {
       min-height: calc(100vh - var(--header-h));
       display: grid;
@@ -410,7 +408,6 @@
       font-size: 0.9rem;
     }
 
-    /* Grid cards */
     .grid {
       display: grid;
       gap: 22px;
@@ -472,7 +469,6 @@
       font-size: 0.92rem;
     }
 
-    /* About / info strip */
     .strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -500,7 +496,6 @@
       font-size: 0.92rem;
     }
 
-    /* Quote form */
     .quote-wrap {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -509,7 +504,10 @@
     }
 
     .info-box,
-    .form-box {
+    .form-box,
+    .testimonial-box,
+    .video-box,
+    .feature-box {
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -625,7 +623,93 @@
       color: #b8f7ca;
     }
 
-    /* Footer */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--gold-2);
+      margin-bottom: 6px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .testimonial-slider {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .testimonial {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .stars {
+      color: var(--gold-2);
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial p {
+      color: #e8e8e8;
+      margin-bottom: 14px;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .testimonial span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .feature-item h3 {
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+
+    .feature-item p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     .footer {
       padding: 34px 0 110px;
       border-top: 1px solid var(--border);
@@ -667,7 +751,6 @@
       text-align: center;
     }
 
-    /* Floating buttons */
     .floating {
       position: fixed;
       right: 18px;
@@ -708,7 +791,6 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -747,11 +829,59 @@
       font-size: 1.2rem;
     }
 
-    /* Mobile */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(0,0,0,0.78);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(100%, 760px);
+      background: linear-gradient(180deg, rgba(24,24,24,0.98), rgba(14,14,14,0.98));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .close-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1100px) {
+      .testimonial-slider,
+      .stats-grid,
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     @media (max-width: 1024px) {
       .hero-inner,
-      .quote-wrap,
-      .footer-inner {
+      .quote-wrap {
         grid-template-columns: 1fr;
       }
 
@@ -797,6 +927,13 @@
       .mobile-menu a:hover {
         background: rgba(255,255,255,0.05);
         color: var(--text);
+      }
+
+      .testimonial-slider,
+      .feature-grid,
+      .stats-grid,
+      .footer-inner {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -850,6 +987,7 @@
 
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
         <a href="#gallery">Gallery</a>
         <a href="#packages">Packages</a>
         <a href="#quote">Quotation</a>
@@ -864,6 +1002,7 @@
 
     <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
       <a href="#home">Home</a>
+      <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a href="#packages">Packages</a>
       <a href="#quote">Quotation</a>
@@ -884,7 +1023,7 @@
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="#packages">View Packages</a>
-            <a class="btn btn-ghost" href="#quote">Request Quotation</a>
+            <button class="btn btn-ghost" id="openQuoteBtn" type="button">Request Quotation</button>
           </div>
 
           <div class="hero-points">
@@ -923,6 +1062,54 @@
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section dark" id="about">
+      <div class="container">
+        <div class="eyebrow">Why Choose Us</div>
+        <h2 class="section-title">Premium Experience for Every Celebration</h2>
+        <p class="section-subtitle">
+          We focus on quality, presentation, and customer convenience. The site is built to make inquiries simple while looking polished on mobile and desktop.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <strong>50+</strong>
+            <span>Event-ready layouts</span>
+          </div>
+          <div class="stat-card">
+            <strong>24/7</strong>
+            <span>Online inquiry access</span>
+          </div>
+          <div class="stat-card">
+            <strong>100%</strong>
+            <span>Responsive design</span>
+          </div>
+          <div class="stat-card">
+            <strong>Fast</strong>
+            <span>Quotation workflow</span>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3>Professional Branding</h3>
+            <p>Strong visual identity with gold accents, dark premium theme, and clean typography.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Business-Ready Layout</h3>
+            <p>Built for future upgrades like admin dashboard, booking management, and quotation automation.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Client-Friendly Navigation</h3>
+            <p>Visitors can quickly see services, packages, gallery, and quotation entry points.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Easy Expansion</h3>
+            <p>Can later be split into separate HTML, CSS, and JS files with backend integration.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1053,6 +1240,68 @@
       </div>
     </section>
 
+    <section class="section dark" id="testimonials">
+      <div class="container">
+        <div class="eyebrow">Client Feedback</div>
+        <h2 class="section-title">What Clients Say</h2>
+        <p class="section-subtitle">
+          Add real feedback here later. This section is already prepared for testimonials and reviews.
+        </p>
+
+        <div class="testimonial-slider">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>Ang linis ng design at very professional tingnan. Perfect sa event namin.</p>
+            <strong>Robert G. </strong>
+            <span>Birthday Celebration</span>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>Madaling i-navigate ang site at mabilis mag-request ng quotation.</p>
+            <strong>Romeo Q. </strong>
+            <span>Corporate Event</span>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>Ang premium ng look. Maganda ang gallery at packages presentation.</p>
+            <strong>Christian P. </strong>
+            <span>Debut Event</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="eyebrow">Phase B Upgrade</div>
+        <h2 class="section-title">Enterprise Homepage Ready</h2>
+        <p class="section-subtitle">
+          This homepage is built to support the next steps: admin dashboard, booking system, quotation automation, and content management.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3>Quotation Modal</h3>
+            <p>Open a quick inquiry window from the hero section for better conversion.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Floating Quick Contact</h3>
+            <p>WhatsApp, Messenger, and back-to-top buttons are always accessible.</p>
+          </div>
+          <div class="feature-item">
+            <h3>SEO Structure</h3>
+            <p>Meta tags and semantic layout are ready for search visibility and sharing.</p>
+          </div>
+          <div class="feature-item">
+            <h3>Future Backend Integration</h3>
+            <p>Ready for forms, database, booking status, and admin-managed uploads.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section dark" id="quote">
       <div class="container">
         <div class="eyebrow">Request a Quotation</div>
@@ -1177,6 +1426,26 @@
       </div>
     </section>
 
+    <section class="section" id="video">
+      <div class="container">
+        <div class="eyebrow">Media Highlight</div>
+        <h2 class="section-title">Video / Promo Slot</h2>
+        <p class="section-subtitle">
+          This area is ready for a promotional video or a future embedded reel.
+        </p>
+
+        <div class="video-box">
+          <div style="aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: linear-gradient(135deg, rgba(248,180,0,0.16), rgba(255,255,255,0.04)); border: 1px solid var(--border); display: grid; place-items: center; text-align: center; padding: 24px;">
+            <div>
+              <div style="font-size: 3rem; margin-bottom: 10px;">▶</div>
+              <h3 style="margin-bottom: 8px;">Promotional Video Slot</h3>
+              <p style="color: var(--muted); max-width: 620px; margin: 0 auto;">Insert your event highlight video, reels, or a background promo clip here later.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer" id="contact">
       <div class="container">
         <div class="footer-inner">
@@ -1201,8 +1470,8 @@
             <h3>Quick Links</h3>
             <div class="footer-links">
               <a href="#home">Home</a>
+              <a href="#about">About</a>
               <a href="#gallery">Gallery</a>
-              <a href="#packages">Packages</a>
               <a href="#quote">Quotation</a>
             </div>
           </div>
@@ -1224,6 +1493,43 @@
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
     <img id="lightboxImg" alt="Expanded gallery preview" />
+  </div>
+
+  <div class="modal" id="quoteModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">Quick Quotation</div>
+          <h2 class="section-title" style="margin-bottom: 0;">Fast Inquiry</h2>
+        </div>
+        <button class="close-btn" id="closeQuoteBtn" aria-label="Close quotation modal">×</button>
+      </div>
+
+      <p style="color: var(--muted); margin-bottom: 18px;">
+        Use this quick form to generate a ready-to-send quotation message.
+      </p>
+
+      <form id="modalQuoteForm" class="form-grid">
+        <div class="field">
+          <label for="qName">Full Name</label>
+          <input id="qName" type="text" placeholder="Juan Dela Cruz" required />
+        </div>
+        <div class="field">
+          <label for="qPhone">Mobile Number</label>
+          <input id="qPhone" type="tel" placeholder="09XXXXXXXXX" required />
+        </div>
+        <div class="field full">
+          <label for="qEvent">Event Details</label>
+          <textarea id="qEvent" placeholder="Event type, date, venue, package, and requests" required></textarea>
+        </div>
+        <div class="field full">
+          <div class="form-actions" style="margin-top: 0;">
+            <button class="btn btn-primary" type="submit">Generate WhatsApp Message</button>
+            <button class="btn btn-ghost" type="button" id="clearQuoteBtn">Clear</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 
   <script>
@@ -1286,9 +1592,50 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         closeLightbox();
+        closeQuoteModal();
         mobileMenu.classList.remove("open");
         menuBtn.textContent = "☰";
       }
+    });
+
+    const quoteModal = document.getElementById("quoteModal");
+    const openQuoteBtn = document.getElementById("openQuoteBtn");
+    const closeQuoteBtn = document.getElementById("closeQuoteBtn");
+    const clearQuoteBtn = document.getElementById("clearQuoteBtn");
+
+    function openQuoteModal() {
+      quoteModal.classList.add("open");
+      quoteModal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeQuoteModal() {
+      quoteModal.classList.remove("open");
+      quoteModal.setAttribute("aria-hidden", "true");
+    }
+
+    openQuoteBtn.addEventListener("click", openQuoteModal);
+    closeQuoteBtn.addEventListener("click", closeQuoteModal);
+    quoteModal.addEventListener("click", (e) => {
+      if (e.target === quoteModal) closeQuoteModal();
+    });
+
+    clearQuoteBtn.addEventListener("click", () => {
+      document.getElementById("qName").value = "";
+      document.getElementById("qPhone").value = "";
+      document.getElementById("qEvent").value = "";
+    });
+
+    document.getElementById("modalQuoteForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("qName").value.trim();
+      const phone = document.getElementById("qPhone").value.trim();
+      const eventDetails = document.getElementById("qEvent").value.trim();
+
+      const text = `Hello Snap Moment Photobooth, I would like to request a quotation.\n\nName: ${name}\nMobile Number: ${phone}\n\nEvent Details:\n${eventDetails}`;
+      const url = `https://wa.me/639629549850?text=${encodeURIComponent(text)}`;
+
+      window.open(url, "_blank", "noopener,noreferrer");
+      closeQuoteModal();
     });
 
     const quoteForm = document.getElementById("quoteForm");
